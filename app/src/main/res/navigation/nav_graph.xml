@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.grand.kotlinnews.ui.article.DisplayArtical"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_diaplayartical">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            >
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.grand.kotlinnews.ui.news.NewsFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_kotlin_news">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/newsFragment"
+            app:popUpTo="@id/newsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
